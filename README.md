@@ -1,6 +1,6 @@
 # Give Me The Service
 
- async/await application framework with dependency-injection.
+Give me the service is a ES6 dependency injection container for OOP.
 
  [![NPM][npm-image]][npm-url]
  [![Build Status][travis-image]][travis-url]
@@ -9,43 +9,30 @@
  [![Dependencies Status][david-dm-image]][david-dm-url]
 
 ```shell
-npm install $givemetheservice --save
+npm install givemetheservice --save
 ```
-
- Discover our [starter kit](https://www.npmjs.com/package/givemetheservice-starter-kit-polymer) with [Polymer](https://www.polymer-project.org/).
 
 # Features
 
-  * [Promise & async/await](#async/await)
-  * [Services & POO](#services) 
+  * [Services](#services) 
   * [Dependency injection](#di)
-  * [Single config file](#config) 
-  * [Compression & minification](#bundle) 
-  * [0 disk access at runtime](#disk) 
-  * [Bundle](#bundle) css, [sass](https://www.npmjs.com/package/node-sass)
   * [Configuration](#config)
   
-<a name="async/await"/>
-## Promise & async/await
-
-  * Easier to read
-  * Easier to maintain in the future
-  * Easier error handling
-
 ## Services
 <a name="service"/>
 
-Develop your own service in a separate file. Your don't need to instanciate it. Qwebs [DI](#di) do that job. If you use another service just inject it in your constructor.
+Develop your own service in a separate file. Your don't need to instanciate it. GiveMeTheService [DI](#di) do that job. If you use another service just inject it in your constructor.
 
 > What is the main avantage to use DI ?
 >
 > You could easily override any service. Unit testing will be easy.
 
-```givemetheservice.json
+```giveme.json
 {
     "services": [
-        { "name": "$http", "location": "givemetheservice-http"},
-        { "name": "$service", "location": "./service"}
+        { "name": "<alias>", "location": "<module name|filepath>"},
+        { "name": "request", "location": "request"},
+        { "name": "service", "location": "./service"}
     ]
 }
 ```
@@ -58,49 +45,23 @@ Injected services are created as singleton.
 
 ```services/user.js
 class UserService {
-    constructor($config)
+    constructor(config)
 ```
 
-Qwebs will create your service with its dependencies.
-
-```routes.json
-{
-    "services": [
-        { "name": "$user", "location": "../services/user"}
-        ...
-```
+GiveMeTheService will create your service with its dependencies.
 
 ### Lifecycle
 
-1. import module
-1. constructor()
+1. inject
+1. create()
 1. mount()
+1. unmount()
 
 <a name="config"/>
-## Create config.json
+## giveme.json
 
-Qwebs embed a configuration manager. 
-
-
-## Services
-
-  * $config: your configuration.
-  * $givemetheservice: givemetheservice instance.
-  * injector: resolve services at runtime.
-  * $qjimp: convert and manipulate images.
+GiveMeTheService can be configure via giveme.json. 
   
-## Others Services
-  
-  * [http](https://www.npmjs.com/package/givemetheservice-http)
-  * [mongo](https://www.npmjs.com/package/givemetheservice-mongo)
-  * [authentication](https://www.npmjs.com/package/givemetheservice-auth-jwt)
-  * [nodemailer](https://www.npmjs.com/package/givemetheservice-nodemailer)
-  * [bitbucket](https://www.npmjs.com/package/givemetheservice-bitbucket-deploy)
-  * [aws-s3](https://www.npmjs.com/package/givemetheservice-aws-s3)
-  * [aws-ses](https://www.npmjs.com/package/givemetheservice-aws-ses)
-  * [ws api gateway](https://www.npmjs.com/package/givemetheservice-aws-api-gateway)
-
-
 ## Test
 
 To run our tests, clone the Qwebs repo and install the dependencies.
