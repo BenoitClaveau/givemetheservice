@@ -1,0 +1,53 @@
+{
+  "name": "givemetheservice",
+  "version": "1.0.0",
+  "description": "Web application framework",
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "latest",
+    "diacritics": "latest",
+    "jimp": "latest",
+    "jsonparse": "latest",
+    "oups": "latest",
+    "request": "latest"
+  },
+  "devDependencies": {
+    "coveralls": "latest",
+    "expect.js": "latest",
+    "istanbul": "latest",
+    "mocha": "latest"
+  },
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha --recursive tests",
+    "test-cover": "node_modules/.bin/istanbul cover node_modules/mocha/bin/mocha --recursive tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BenoitClaveau/givemetheservice.git"
+  },
+  "keywords": [
+    "dependency-injection",
+    "injection",
+    "injector",
+    "promise",
+    "api",
+    "stream",
+    "async",
+    "await",
+    "router",
+    "routing",
+    "route",
+    "service",
+    "services",
+    "poo"
+  ],
+  "author": {
+    "name": "Benoît Claveau",
+    "email": "benoit.claveau@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BenoitClaveau/givemetheservice/issues"
+  },
+  "homepage": "https://github.com/BenoitClaveau/givemetheservice"
+}

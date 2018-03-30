@@ -1,2 +1,124 @@
-# givemetheservice
-Give me the service is an ES6 dependency injection container.
+# Give Me The Service
+
+ async/await application framework with dependency-injection.
+
+ [![NPM][npm-image]][npm-url]
+ [![Build Status][travis-image]][travis-url]
+ [![Coverage Status][coveralls-image]][coveralls-url]
+ [![NPM Download][npm-image-download]][npm-url]
+ [![Dependencies Status][david-dm-image]][david-dm-url]
+
+```shell
+npm install $givemetheservice --save
+```
+
+ Discover our [starter kit](https://www.npmjs.com/package/givemetheservice-starter-kit-polymer) with [Polymer](https://www.polymer-project.org/).
+
+# Features
+
+  * [Promise & async/await](#async/await)
+  * [Services & POO](#services) 
+  * [Dependency injection](#di)
+  * [Single config file](#config) 
+  * [Compression & minification](#bundle) 
+  * [0 disk access at runtime](#disk) 
+  * [Bundle](#bundle) css, [sass](https://www.npmjs.com/package/node-sass)
+  * [Configuration](#config)
+  
+<a name="async/await"/>
+## Promise & async/await
+
+  * Easier to read
+  * Easier to maintain in the future
+  * Easier error handling
+
+## Services
+<a name="service"/>
+
+Develop your own service in a separate file. Your don't need to instanciate it. Qwebs [DI](#di) do that job. If you use another service just inject it in your constructor.
+
+> What is the main avantage to use DI ?
+>
+> You could easily override any service. Unit testing will be easy.
+
+```givemetheservice.json
+{
+    "services": [
+        { "name": "$http", "location": "givemetheservice-http"},
+        { "name": "$service", "location": "./service"}
+    ]
+}
+```
+
+<a name="di"/>
+## Dependency injection
+
+Just declare the service name in your constructor.
+Injected services are created as singleton.
+
+```services/user.js
+class UserService {
+    constructor($config)
+```
+
+Qwebs will create your service with its dependencies.
+
+```routes.json
+{
+    "services": [
+        { "name": "$user", "location": "../services/user"}
+        ...
+```
+
+### Lifecycle
+
+1. import module
+1. constructor()
+1. mount()
+
+<a name="config"/>
+## Create config.json
+
+Qwebs embed a configuration manager. 
+
+
+## Services
+
+  * $config: your configuration.
+  * $givemetheservice: givemetheservice instance.
+  * injector: resolve services at runtime.
+  * $qjimp: convert and manipulate images.
+  
+## Others Services
+  
+  * [http](https://www.npmjs.com/package/givemetheservice-http)
+  * [mongo](https://www.npmjs.com/package/givemetheservice-mongo)
+  * [authentication](https://www.npmjs.com/package/givemetheservice-auth-jwt)
+  * [nodemailer](https://www.npmjs.com/package/givemetheservice-nodemailer)
+  * [bitbucket](https://www.npmjs.com/package/givemetheservice-bitbucket-deploy)
+  * [aws-s3](https://www.npmjs.com/package/givemetheservice-aws-s3)
+  * [aws-ses](https://www.npmjs.com/package/givemetheservice-aws-ses)
+  * [ws api gateway](https://www.npmjs.com/package/givemetheservice-aws-api-gateway)
+
+
+## Test
+
+To run our tests, clone the Qwebs repo and install the dependencies.
+
+```bash
+$ git clone https://github.com/BenoitClaveau/givemetheservice --depth 1
+$ cd givemetheservice
+$ npm install
+$ cd tests
+$ node.exe "../node_modules/mocha/bin/mocha" .
+```
+
+[npm-image]: https://img.shields.io/npm/v/givemetheservice.svg
+[npm-image-download]: https://img.shields.io/npm/dm/givemetheservice.svg
+[npm-url]: https://npmjs.org/package/givemetheservice
+[travis-image]: https://travis-ci.org/BenoitClaveau/givemetheservice.svg?branch=master
+[travis-url]: https://travis-ci.org/BenoitClaveau/givemetheservice
+[coveralls-image]: https://coveralls.io/repos/BenoitClaveau/givemetheservice/badge.svg?branch=master&service=github
+[coveralls-url]: https://coveralls.io/github/BenoitClaveau/givemetheservice?branch=master
+[david-dm-image]: https://david-dm.org/BenoitClaveau/givemetheservice/status.svg
+[david-dm-url]: https://david-dm.org/BenoitClaveau/givemetheservice
