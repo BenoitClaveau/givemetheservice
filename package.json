@@ -1,6 +1,6 @@
 {
   "name": "givemetheservice",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "ES6 dependency injection container.",
   "main": "index.js",
   "dependencies": {
