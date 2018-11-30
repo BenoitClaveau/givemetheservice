@@ -17,8 +17,6 @@ describe("givemetheservice", () => {
     it("load", async () => {
         const giveme = new GiveMeTheService({ dirname: __dirname });
         await giveme.load();
-        const qjimp = await giveme.resolve("qjimp");
         await giveme.unload();
-
     }).timeout(5000);
 });

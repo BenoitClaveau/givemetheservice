@@ -27,16 +27,6 @@ Develop your own service in a separate file. Your don't need to instanciate it. 
 >
 > You could easily override any service. Unit testing will be easy.
 
-```giveme.json
-{
-    "services": [
-        { "name": "<alias>", "location": "<module name|filepath>"},
-        { "name": "request", "location": "request"},
-        { "name": "service", "location": "./service"}
-    ]
-}
-```
-
 <a name="di"/>
 ## Dependency injection
 
@@ -56,11 +46,6 @@ GiveMeTheService will create your service with its dependencies.
 1. create()
 1. mount()
 1. unmount()
-
-<a name="config"/>
-## giveme.json
-
-GiveMeTheService can be configure via giveme.json. 
   
 ## Test
 
