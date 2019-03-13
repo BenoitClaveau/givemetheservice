@@ -10,7 +10,7 @@ const {
     camelCaseToDash,
     dashToCamelCase,
     capitalizeFirstLetter
-} = require('../../lib/core/string');
+} = require('../../lib/string');
 
 describe("StringUtils", () => {
 
