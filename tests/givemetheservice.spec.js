@@ -8,10 +8,6 @@
 const expect = require("expect.js");
 const GiveMeTheService = require("../lib/givemetheservice");
 
-require("process").on('unhandledRejection', (reason, p) => {
-    console.error('Unhandled Rejection at:', p, 'reason:', reason);
-});
-
 describe("givemetheservice", () => {
     
     it("load", async () => {

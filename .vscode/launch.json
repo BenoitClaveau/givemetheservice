@@ -7,28 +7,13 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Server",
-      "program": "${workspaceRoot}/server.js"
-    },
-    {
-      "type": "node",
-      "request": "launch",
       "name": "Tests",
       "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
       "args": [
         "--recursive",
+        "--grep",
+        "try to inject es5",
         "${workspaceRoot}/tests/**/*.spec.js"
-      ],
-      "cwd": "${workspaceRoot}"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Single test",
-      "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
-      "args": [
-        "--recursive",
-        "${workspaceRoot}/tests/givemetheservice.spec.js"
       ],
       "cwd": "${workspaceRoot}"
     }
